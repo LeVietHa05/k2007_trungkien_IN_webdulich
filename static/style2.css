@@ -218,6 +218,9 @@ label {
 #page17 {
   z-index: -14;
 }
+#page18 {
+  z-index: -15;
+}
 
 #checkbox-cover:checked ~ .book {
   transform: translateX(calc(var(--book-height) * 0.35));
@@ -293,4 +296,9 @@ label {
 #checkbox-page16:checked ~ .book #page16 {
   transform: rotateY(-180deg);
   z-index: 2;
+}
+
+#checkbox-page17:checked ~ .book #page17 {
+  transform: rotateY(-180deg);
+  z-index: 3;
 }

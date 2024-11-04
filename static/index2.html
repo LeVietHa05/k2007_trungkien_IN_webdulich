@@ -40,7 +40,7 @@
                 <img src="./img/front_cover2.png">
             </div>
         </div>
-        <div class="page" id="page1">
+        <!-- <div class="page" id="page1">
             <div class="front-page">
                 <img src="./img/about1.png" alt="">
                 <label class="next" for="checkbox-page1"></label>
@@ -205,17 +205,90 @@
                 <img src="./img/5_3.png" alt="">
             </div>
         </div>
-        <div class="back-cover"></div>
+        <div class="back-cover"></div> -->
     </div>
 
 
     <script>
-        //not working
-        // let numberOfPages = 5;
-        // let pages = document.querySelectorAll('.page');
-        // pages.forEach((page, idnex) => {
-        //     page.style.zIndex = numberOfPages - idnex;
-        // })
+        let imgs = [
+            ['./img/about1.png',
+                './img/about2.png'],
+            ['./img/ToC.png',
+                './img/header1.png'],
+            ['./img/1_1.png',
+                './img/1_2.png'],
+            ['./img/1_3.png',
+                './img/1_4.png'],
+            ['./img/1_5.png',
+                './img/1_6.png'],
+            ['./img/1_7.png',
+                './img/header2.png'],
+            ['./img/2_1.png',
+                './img/2_2.png'],
+            ['./img/2_3.png',
+                './img/2_4.png'],
+            ['./img/2_5.png',
+                './img/2_6.png'],
+            ['./img/2_7.png',
+                './img/header3.png'],
+            ['./img/3_1.png',
+                './img/3_2.png'],
+            ['./img/3_3.png',
+                './img/3_4.png'],
+            ['./img/3_5.png',
+                './img/header4.png'],
+            ['./img/4_1.png',
+                './img/4_2.png'],
+            ['./img/4_3.png',
+                './img/4_4.png'],
+            ['./img/4_5.png',
+                './img/5_1.png'],
+            ['./img/5_2.png',
+                './img/5_3.png'],
+            ['./img/5_4.png']
+        ]
+
+        let book = document.querySelector('.book')
+
+        for (let imgsOfPage of imgs) {
+            let page = document.createElement('div')
+            page.classList.add('page')
+            page.id = 'page' + (imgs.indexOf(imgsOfPage) + 1)
+            book.appendChild(page)
+
+            let frontPage = document.createElement('div')
+            frontPage.classList.add('front-page')
+            page.appendChild(frontPage)
+
+            let img = document.createElement('img')
+            img.src = imgsOfPage[0]
+            frontPage.appendChild(img)
+
+            let next = document.createElement('label')
+            next.classList.add('next')
+            next.setAttribute('for', 'checkbox-page' + (imgs.indexOf(imgsOfPage) + 1))
+            frontPage.appendChild(next)
+
+            if (imgsOfPage.length === 1) {
+                break
+            }
+
+            let backPage = document.createElement('div')
+            backPage.classList.add('back-page')
+            page.appendChild(backPage)
+
+            img = document.createElement('img')
+            img.src = imgsOfPage[1]
+            backPage.appendChild(img)
+
+            let prev = document.createElement('label')
+            prev.classList.add('prev')
+            prev.setAttribute('for', 'checkbox-page' + (imgs.indexOf(imgsOfPage) + 1))
+            backPage.appendChild(prev)
+        }
+
+        book.innerHTML += '<div class="back-cover"></div>'
+
     </script>
 </body>
 
